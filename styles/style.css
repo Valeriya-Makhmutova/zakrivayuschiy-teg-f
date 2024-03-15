@@ -20,11 +20,11 @@
   align-items: center;
   color: var(--text-color);
   font-family: var(--main-font-inter), "Inter", sans-serif;
-  font-variation-settings: "wght" var(--text-font-weight);
   background-color: var(--bg-color);
   background-image: var(--bg-image);
   background-size: cover;
   background-attachment: fixed;
+  font-variation-settings: "wght" var(--text-font-weight);
   min-inline-size: 320px;
   min-block-size: 100dvb;
 }
@@ -41,7 +41,7 @@
   border: 2px solid var(--border-color);
   padding-top: 136px;
   padding-bottom: 25px;
-  font-family: "PressStart2P", sans-serif;
+  font-family: var(--accent-font-PressStart2P), fantasy;
   font-weight: 400;
   background-color: var(--bg-color);
   min-block-size: 327px;
@@ -73,16 +73,17 @@
   }
 }
 
-h1 {
+.header__title {
   margin-bottom: 20px;
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
-  line-height: clamp(49px, 65px);
+  line-height: normal;
+  white-space: nowrap;
 }
 
-h2 {
+.header__subtitle {
   margin-bottom: 25px;
   font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
-  line-height: clamp(14px, 23px);
+  line-height: normal;
   text-transform: uppercase;
 }
 
@@ -103,7 +104,7 @@ h2 {
   border: none;
   padding: 0;
   overflow: none;
-  font-family: var(--accent-font-PressStart2P), sans-serif;
+  font-family: var(--accent-font-PressStart2P), fantasy;
   font-size: 14px;
   text-transform: uppercase;
   background-color: transparent;
@@ -143,7 +144,7 @@ h2 {
   display: block;
   width: 100%;
   height: 2px;
-  color: var(--accent-color-pale);
+  color: var(--accent-color-strong);
   transition: 0.3s ease;
   transform: scaleX(1);
 }
@@ -152,12 +153,6 @@ h2 {
   color: var(--accent-color-pale);
   transition: 0.3s ease;
   pointer-events: none;
-}
-
-img {
-  width: 100%;
-  object-fit: contain;
-  outline: black;
 }
 
 .content {
@@ -194,9 +189,9 @@ img {
   margin-left: 9px;
   font-family: "Inter", sans-serif;
   font-weight: var(--font-weight-bold);
-  font-variation-settings: "wght" var(--title-font-weight);
   font-size: 18px;
   line-height: 21.78px;
+  font-variation-settings: "wght" var(--title-font-weight);
 }
 
 @media (width <=376px) {
@@ -214,6 +209,13 @@ img {
   position: relative;
 }
 
+@media (width <= 696px) {
+  .content__card-image-container {
+    max-inline-size: 696px;
+    max-block-size: 696px;
+  }
+}
+
 .content__card-image {
   z-index: 0;
   inline-size: 693px;
@@ -223,6 +225,12 @@ img {
 @media (width <=376px) {
   .content__card-image {
     inline-size: 371px;
+  }
+}
+
+@media (width <= 696px) {
+  .content__card-image {
+    inline-size: 100%;
     block-size: 371px;
   }
 }
@@ -231,7 +239,7 @@ img {
   position: absolute;
   z-index: 2;
   color: var(--label-text-color);
-  font-family: var(--accent-font-PressStart2P), sans-serif;
+  font-family: var(--accent-font-PressStart2P), fantasy;
   font-weight: 400;
   font-size: 14px;
   line-height: 14px;
@@ -288,7 +296,6 @@ img {
   justify-content: flex-end;
   gap: 12px;
   align-self: flex-end;
-  inline-size: 169px;
   block-size: 38px;
 }
 
@@ -311,7 +318,11 @@ img {
 }
 
 .content__card-button-like:focus {
-  box-shadow: 5px 2px 0 0 var(--accent-color-strong);
+  outline: none;
+}
+
+.content__card-button-like:focus-visible {
+  box-shadow: 2px 2px 0 0 var(--accent-color-strong);
   outline: none;
   transition: 0.3s ease;
 }
@@ -321,7 +332,7 @@ img {
   z-index: 2;
   align-self: center;
   color: var(--button-text-color);
-  font-family: var(--accent-font-PressStart2P), sans-serif;
+  font-family: var(--accent-font-PressStart2P), fantasy;
   font-weight: 400;
   font-size: 14px;
   line-height: 12.6px;
@@ -374,87 +385,6 @@ img {
   block-size: 36px;
 }
 
-.like-icon.is-liked .core {
-  fill: var(--heart-fill-color);
-  transition: fill 0.3s linear;
-}
-
-.like-icon.is-liked .main-body {
-  fill: var(--heart-fill-color);
-  transition: fill 0.3s linear;
-  transition-delay: 0.03s;
-}
-
-.like-icon.is-liked .contour {
-  fill: var(--heart-fill-color);
-  transition: fill 0.3s linear;
-  transition-delay: 0.06s;
-}
-
-.like-icon .contour {
-  fill: var(--heart-contour-color);
-  transition: fill 0.1s linear;
-}
-
-.like-icon.is-liked .sparks {
-  animation: sparks 0.3s 0.3s ease-in 1;
-  animation-direction: alternate;
-}
-
-.heart {
-  transform-origin: center;
-}
-
-.like-icon.is-liked .heart {
-  animation: scale 0.3s 0.1s ease-in 1;
-  animation-direction: alternate;
-}
-
-.core {
-  fill: transparent;
-}
-
-.like-icon:hover .core {
-  fill: var(--accent-color-strong);
-  transition: fill 0.3s linear;
-}
-
-.like-icon:active .core {
-  fill: var(--heart-fill-color);
-  transition: fill 0.3s linear;
-}
-
-.like-icon .core {
-  fill: transparent;
-  transition: fill 0.3s linear;
-  transition-delay: 0.03s;
-}
-
-.main-body {
-  fill: transparent;
-}
-
-.like-icon:hover .main-body {
-  fill: var(--accent-color-strong);
-  transition: fill 0.3s linear;
-  transition-delay: 0.05s;
-}
-
-.like-icon:active .main-body {
-  fill: var(--heart-fill-color);
-  transition: fill 0.3s linear;
-  transition-delay: 0.05s;
-}
-
-.like-icon .main-body {
-  fill: transparent;
-  transition: fill 0.3s linear;
-}
-
-.sparks {
-  opacity: 0;
-}
-
 .footer {
   position: relative;
   margin: 52px auto 103px;
@@ -471,6 +401,7 @@ img {
   position: relative;
   display: flex;
   gap: 8px;
+  border: none;
   padding: 15px 21px 19px;
   background-color: var(--bg-color);
 }
@@ -481,6 +412,16 @@ img {
     align-items: center;
     padding: 15px 20.5px 19.5px;
   }
+}
+
+.footer-button:focus {
+  outline: none;
+}
+
+.footer-button:focus-visible {
+  box-shadow: 3px 3px 0 0 var(--accent-color-strong);
+  outline: none;
+  transition: 0.3s ease;
 }
 
 .svg-floppy-icon {
@@ -503,7 +444,7 @@ img {
   padding: 0;
   overflow: hidden;
   color: var(--text-color);
-  font-family: var(--accent-font-PressStart2P), sans-serif;
+  font-family: var(--accent-font-PressStart2P), fantasy;
   font-weight: 400;
   font-size: 14px;
   text-transform: uppercase;
@@ -562,9 +503,10 @@ img {
 .dialog__button {
   margin: 0 30px 30px;
   border: 3px solid var(--text-color);
+  color: var(--text-color);
   line-height: 12.6px;
   text-transform: uppercase;
-  background-color: transparent;
+  background-color: var(--bg-color);
   inline-size: 293px;
   block-size: 38px;
 }
