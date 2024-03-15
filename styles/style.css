@@ -581,7 +581,7 @@ img {
 }
 
 .blanket {
-  filter: grayscale(80%);
+  filter: blur(0.8px);
 }
 
 .waterfall {
@@ -601,9 +601,9 @@ img {
 }
 
 .relax {
-  filter: saturate(250%) contrast(80%);
+  filter: saturate(200%) contrast(80%);
 }
 
 .cat {
-  filter: blur(0.8px);
+  filter: grayscale(60%);
 }
