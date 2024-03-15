@@ -5,16 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="dark light" />
     <title>Закрывающий тег</title>
-    <meta
-      name="shortcut icon"
-      href="./images/favicon-optimized.svg"
-      type="image/svg+xml"
-    />
-    <meta
-      name="shortcut icon"
-      href="./images/favicon-optimized.ico"
-      sizes="any"
-    />
     <meta name="apple-touch-icon" href="./images/favicon-optimized-apple.png" />
     <link rel="shortcut icon" href="./images/favicon-optimized.ico" />
     <link rel="shortcut icon" href="./images/favicon-optimized.svg" />
@@ -701,14 +691,15 @@
             вставьте дискету, чтобы продолжить
           </span>
         </div>
-
-        <button
-          class="dialog__button"
-          type="button"
-          onclick="window['dialog-id'].close()"
-        >
-          ок
-        </button>
+        <form class="form_dialog" method="dialog">
+          <button
+            class="dialog__button"
+            type="button"
+            onclick="window['dialog-id'].close()"
+          >
+            ок
+          </button>
+        </form>
       </dialog>
     </footer>
     <script src="./scripts/like.js"></script>
