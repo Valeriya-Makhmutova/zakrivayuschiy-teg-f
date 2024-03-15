@@ -194,6 +194,7 @@ img {
   margin-left: 9px;
   font-family: "Inter", sans-serif;
   font-weight: var(--font-weight-bold);
+  font-variation-settings: "wght" var(--title-font-weight);
   font-size: 18px;
   line-height: 21.78px;
 }
