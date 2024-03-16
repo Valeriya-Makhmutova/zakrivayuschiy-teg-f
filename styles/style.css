@@ -117,14 +117,11 @@
 
 .theme-menu__button:focus {
   outline: none;
-  opacity: 0.6;
   transition: 0.3s ease;
-  /* position: absolute; */
 }
 
 .theme-menu__button:focus-visible {
   outline: none;
-  opacity: 0.6;
 }
 
 .theme-menu__button::after {
@@ -133,7 +130,7 @@
   display: block;
   width: 0;
   height: 2px;
-  background-color: var(--accent-color-pale);
+  background-color: var(--accent-color-strong);
   transform: scaleX(0);
 }
 
